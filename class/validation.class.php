@@ -22,7 +22,7 @@ class Validation //extends items
        public function __construct( )  {  }
 
 
-       function AddCount()
+       private function AddCount()
        {
               $this->Count += 1;
        }
