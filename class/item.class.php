@@ -45,7 +45,7 @@ class items
               $this->SuccessUpdate = '<div class="alert alert-success alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <strong>Success!</strong> Item have successfully been updated</div>';
        }
 
-
+       //Privatize item
        function privatizeItem($Item_ID)
        {
               $GetItem = $this->DB->prepare("SELECT * FROM items WHERE Item_ID = '$Item_ID'");
@@ -90,31 +90,3 @@ class items
               }
        }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
