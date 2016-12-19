@@ -20,7 +20,11 @@ class items
        //Add items
        public function add($Name,$Link,$Category)
        {
-              $sql = $this->DB->prepare("INSERT INTO items (Item_Name,Item_Link,Item_Date,Item_Status,FK_Cat_ID) VALUES ('$Name','$Link','$this->Date','$this->ItemStatus','$Category');");
+              $sql = $this->DB->prepare("INSERT INTO items (Item_Name,Item_Link,Item_Date,Item_Status,FK_Cat_ID) VALUES (:Item_Name,:Item_Link,'$this->Date','$this->ItemStatus',:FK_Cat_ID);");
+              $sql->bindParam(':FK_Cat_ID', $Category, PDO::PARAM_INT);
+              $sql->bindParam(':Item_Name', $Name, PDO::PARAM_STR);
+              $sql->bindParam(':Item_Link', $Link, PDO::PARAM_STR);
+
               $sql->execute();
               $this->SuccessAdd = '<div class="alert alert-success alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <strong>Success!</strong> Item have successfully been added</div>';
        }
